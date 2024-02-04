@@ -51,10 +51,10 @@ namespace NewCostTest
         {
 
 
-            Texture2D tex_a1 = TextureHelper.GetImageAsTexture("Dev_Test", typeof(Plugin).Assembly, 0);
+            Texture2D tex_a1 = TextureHelper.GetImageAsTexture("Dev_Test.png", typeof(Plugin).Assembly, 0);
 
             StarterDeckInfo NewCostDevTest = ScriptableObject.CreateInstance<StarterDeckInfo>();
-            NewCostDevTest.title = "Pure Bone";
+            NewCostDevTest.title = "NewCost Dev Test";
             NewCostDevTest.iconSprite = tex_a1.ConvertTexture(TextureHelper.SpriteType.StarterDeckIcon);
             NewCostDevTest.cards = new() { CardLoader.GetCardByName("lifecost_Teck"), CardLoader.GetCardByName("lifecost_Teck"), CardLoader.GetCardByName("lifecost_Teck") };
 
