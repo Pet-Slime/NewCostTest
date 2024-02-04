@@ -17,19 +17,43 @@ namespace NewCostTest.Costs
         {
             // when registering your card, you need to provide 2 Func's: one for grabbing the cost texture in the 3D Acts, and one for grabbing the pixel texture in Act 2
             // if your cost is exclusive to one part of the game, you can pass in null for the appropriate Func.
-            CardCostManager.Register(Plugin.PluginGuid, "LifeMoneyCost", typeof(NewCostTest.Costs.LifeMoneyCost.LifeMoneyCost), TextureMethod, PixelTextureMethod);
+            CardCostManager.Register(Plugin.PluginGuid, "LifeMoneyCost", typeof(NewCostTest.Costs.LifeMoneyCost.LifeMoneyCost), TextureMethod_LifeMoney, PixelTextureMethod_LifeMoney);
+            CardCostManager.Register(Plugin.PluginGuid, "LifeCost", typeof(NewCostTest.Costs.LifeMoneyCost.LifeCost), TextureMethod_Life, PixelTextureMethod_Life);
+            CardCostManager.Register(Plugin.PluginGuid, "MoneyCost", typeof(NewCostTest.Costs.LifeMoneyCost.MoneyCost), TextureMethod_Money, PixelTextureMethod_Money);
         }
 
-
-        public static Texture2D TextureMethod(int cardCost, CardInfo info, PlayableCard card)
+        public static Texture2D TextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
         {
-            return TextureHelper.GetImageAsTexture(string.Format("LifeMoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly, 0);
+            return TextureHelper.GetImageAsTexture(string.Format("LifeCost_{0}.png", cardCost), typeof(Plugin).Assembly);
         }
 
-        public static Texture2D PixelTextureMethod(int cardCost, CardInfo info, PlayableCard card)
+        public static Texture2D PixelTextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
         {
             // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
-            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeMoneyCost_pixel.png", typeof(Plugin).Assembly, 0));
+            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeCost_pixel.png", typeof(Plugin).Assembly));
+        }
+
+        public static Texture2D TextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
+        {
+            return TextureHelper.GetImageAsTexture(string.Format("MoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly);
+        }
+
+        public static Texture2D PixelTextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
+        {
+            // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
+            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("MoneyCost_pixel.png", typeof(Plugin).Assembly));
+        }
+
+
+        public static Texture2D TextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)
+        {
+            return TextureHelper.GetImageAsTexture(string.Format("LifeMoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly);
+        }
+
+        public static Texture2D PixelTextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)
+        {
+            // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
+            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeMoneyCost_pixel.png", typeof(Plugin).Assembly));
         }
     }
 }

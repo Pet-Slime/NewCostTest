@@ -6,29 +6,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace NewCostTest.Costs.LifeMoneyCost
 {
-    public class LifeMoneyCost : CustomCardCost
+    public class LifeCost : CustomCardCost
     {
         // this is a required field, and should be equal to the name you pass into the API when registering your cost
-        public override string CostName => "LifeMoneyCost";
+        public override string CostName => "LifeCost";
 
         // whether or not this cost's price has been satisfied by the card
         public override bool CostSatisfied(int cardCost, PlayableCard card)
         {
-
-            int currency;
-            if (SaveManager.SaveFile.IsPart2)
-            {
-                currency = RunState.Run.currency;
-            }
-            else
-            {
-                currency = SaveData.Data.currency;
-            }
-            int hybridCost = currency +  Singleton<LifeManager>.Instance.Balance + 4;
-            if (cardCost > hybridCost)
+            //Life is tracked from a scale of -5 to 5. So we add 4 to it to correct it to be from -1 to 9
+            int correctedLife = Singleton<LifeManager>.Instance.Balance + 4;
+            if (cardCost > correctedLife)
             {
                 return false;
             }
@@ -41,11 +33,20 @@ namespace NewCostTest.Costs.LifeMoneyCost
             string Hint;
             if (SaveManager.SaveFile.IsPart2)
             {
-                Hint = $"You do not have enough [c:bG]Life[c:] or [c:gray]Foils[c:] to play that. Damage your opponent to gain more [c:bG]Life[c:].";
+                Hint = $"You do not have enough [c:bG]Life[c:] on your scales to play that. Damage your opponent to gain more [c:bG]Life[c:].";
             }
             else
             {
-                Hint = $"Your [c:bG]Scales[c:] are too tipped and you lack the [c:gray]Foils[c:] to play {card.Info.DisplayedNameLocalized}.";
+                var choice1 = $"Your [c:bG]Scales[c:] are too tipped to play [c:bG]{card.Info.DisplayedNameLocalized}[c:].";
+                var choice2 = $"[c:bG]{card.Info.DisplayedNameLocalized}[c:] requires you to pay in life, in which you can not fullfill without killing yourself.";
+                var choice3 = $"You would kill yourself if you played [c:bG]{card.Info.DisplayedNameLocalized}[c:]. Your [c:bG]Scales[c:] are too tipped";
+
+                List<String> strings = new List<String>();
+                strings.Add(choice1);
+                strings.Add(choice2);
+                strings.Add(choice3);
+
+                Hint = strings[UnityEngine.Random.Range(0, strings.Count)];
             }
             return Hint;
         }
@@ -56,11 +57,11 @@ namespace NewCostTest.Costs.LifeMoneyCost
         {
             if (SaveManager.SaveFile.IsPart2)
             {
-                yield return PayCost.extractCostPart2_hybrid(cardCost, SaveData.Data.currency);
+                yield return PayCost.extractCostPart2_lifeOnly(cardCost);
             }
             else
             {
-                yield return PayCost.extractCostPart1_hybrid(cardCost, RunState.Run.currency);
+                yield return PayCost.extractCostPart1_lifeOnly(cardCost);
             }
         }
     }

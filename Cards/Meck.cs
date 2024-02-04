@@ -9,12 +9,12 @@ using UnityEngine;
 
 namespace NewCostTest.Cards
 {
-    public static class Teck
+    public static class Meck
     {
         public static void AddCard()
         {
-            string internalName = "lifecost_Teck";
-            string displayName = "Teck";
+            string internalName = "lifecost_Meck";
+            string displayName = "Meck";
             string description = "The Lost Beast, in the shape of a tooth, showing up only in error.";
             int attack = 1;
             int health = 1;
@@ -22,7 +22,6 @@ namespace NewCostTest.Cards
             int boneCost = 0;
             int energyCost = 0;
             List<CardMetaCategory> cardMetaCategories = new List<CardMetaCategory>();
-            cardMetaCategories.Add(CardMetaCategory.ChoiceNode);
             List<Tribe> tribes = new List<Tribe>();
             List<Ability> list = new List<Ability>();
             List<Trait> traits = new List<Trait>();
@@ -34,7 +33,7 @@ namespace NewCostTest.Cards
             Texture2D texture_pixel = texture2D2;
             CardInfo cardInfo = CardUtils.CreateCardWithDefaultSettings(internalName, displayName, attack, health, texture_base, texture_emission, cardMetaCategories, tribes, traits, list, texture_pixel, bloodCost, boneCost, energyCost);
             cardInfo.description = description;
-            cardInfo.SetCustomCost("LifeMoneyCost", 1);
+            cardInfo.SetCustomCost("MoneyCost", 1);
             CardManager.Add("lifecost", cardInfo);
         }
     }

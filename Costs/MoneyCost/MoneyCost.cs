@@ -9,26 +9,24 @@ using System.Text;
 
 namespace NewCostTest.Costs.LifeMoneyCost
 {
-    public class LifeMoneyCost : CustomCardCost
+    public class MoneyCost : CustomCardCost
     {
         // this is a required field, and should be equal to the name you pass into the API when registering your cost
-        public override string CostName => "LifeMoneyCost";
+        public override string CostName => "MoneyCost";
 
         // whether or not this cost's price has been satisfied by the card
         public override bool CostSatisfied(int cardCost, PlayableCard card)
         {
-
-            int currency;
+            int currency2;
             if (SaveManager.SaveFile.IsPart2)
             {
-                currency = RunState.Run.currency;
+                currency2 = SaveData.Data.currency;
             }
             else
             {
-                currency = SaveData.Data.currency;
+                currency2 = RunState.Run.currency;
             }
-            int hybridCost = currency +  Singleton<LifeManager>.Instance.Balance + 4;
-            if (cardCost > hybridCost)
+            if (cardCost > currency2)
             {
                 return false;
             }
@@ -41,12 +39,22 @@ namespace NewCostTest.Costs.LifeMoneyCost
             string Hint;
             if (SaveManager.SaveFile.IsPart2)
             {
-                Hint = $"You do not have enough [c:bG]Life[c:] or [c:gray]Foils[c:] to play that. Damage your opponent to gain more [c:bG]Life[c:].";
+                Hint = $"You do not have enough [c:gray]Foils[c:] to play that. You gain [c:gray]Foils[c:] by dealing overkill damage.";
             }
             else
             {
-                Hint = $"Your [c:bG]Scales[c:] are too tipped and you lack the [c:gray]Foils[c:] to play {card.Info.DisplayedNameLocalized}.";
+                var choice1 = $"You lack the foils to play that [c:gray]{card.Info.DisplayedNameLocalized}[c:].";
+                var choice2 = $"[c:gray]{card.Info.DisplayedNameLocalized}[c:] requires you pay it's cost in [c:gray]foils[c:], that which you have [c:gray]{RunState.Run.currency}[c:].";
+                var choice3 = $"That [c:gray]{card.Info.DisplayedNameLocalized}[c:] has the cost of [c:gray]{cardCost}[c:] foils, which you do not have.";
+
+                List<String> strings = new List<String>();
+                strings.Add(choice1);
+                strings.Add(choice2);
+                strings.Add(choice3);
+
+                Hint = strings[UnityEngine.Random.Range(0, strings.Count)];
             }
+
             return Hint;
         }
 
@@ -56,11 +64,11 @@ namespace NewCostTest.Costs.LifeMoneyCost
         {
             if (SaveManager.SaveFile.IsPart2)
             {
-                yield return PayCost.extractCostPart2_hybrid(cardCost, SaveData.Data.currency);
+                yield return PayCost.extractCostPart2_MoneyOnly(cardCost);
             }
             else
             {
-                yield return PayCost.extractCostPart1_hybrid(cardCost, RunState.Run.currency);
+                yield return PayCost.extractCostPart1_MoneyOnly(cardCost, RunState.Run.currency);
             }
         }
     }
