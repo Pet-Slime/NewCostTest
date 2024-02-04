@@ -73,6 +73,25 @@
     <None Remove="Resources\Costs\MoneyCost\3D\MoneyCost_8.png" />
     <None Remove="Resources\Costs\MoneyCost\3D\MoneyCost_9.png" />
     <None Remove="Resources\Costs\MoneyCost\Pixel\MoneyCost_pixel.png" />
+    <None Remove="Resources\Sigils\active_lifecost_hybrid.png" />
+    <None Remove="Resources\Sigils\active_lifecost_justlife.png" />
+    <None Remove="Resources\Sigils\active_lifecost_justmoney.png" />
+    <None Remove="Resources\Sigils\lifecostActivateStatsUpMoney.png" />
+    <None Remove="Resources\Sigils\lifecostActivateStatsUpMoney_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateEnergyGamble.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateEnergyGamble_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateLifeRandomStatsUp.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateLifeRandomStatsUp_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateStatsUpLife.png" />
+    <None Remove="Resources\Sigils\lifecost_ActivateStatsUpLife_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_CashConverter.png" />
+    <None Remove="Resources\Sigils\lifecost_CashConverter_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_greedy.png" />
+    <None Remove="Resources\Sigils\lifecost_greedy_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_LifeConverter.png" />
+    <None Remove="Resources\Sigils\lifecost_LifeConverter_a2.png" />
+    <None Remove="Resources\Sigils\lifecost_vamperic.png" />
+    <None Remove="Resources\Sigils\lifecost_vamperic_a2.png" />
     <None Remove="Resources\StartingDeck\Dev_Test.png" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +141,25 @@
     <EmbeddedResource Include="Resources\Costs\MoneyCost\3D\MoneyCost_8.png" />
     <EmbeddedResource Include="Resources\Costs\MoneyCost\3D\MoneyCost_9.png" />
     <EmbeddedResource Include="Resources\Costs\MoneyCost\Pixel\MoneyCost_pixel.png" />
+    <EmbeddedResource Include="Resources\Sigils\active_lifecost_hybrid.png" />
+    <EmbeddedResource Include="Resources\Sigils\active_lifecost_justlife.png" />
+    <EmbeddedResource Include="Resources\Sigils\active_lifecost_justmoney.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecostActivateStatsUpMoney.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecostActivateStatsUpMoney_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateEnergyGamble.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateEnergyGamble_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateLifeRandomStatsUp.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateLifeRandomStatsUp_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateStatsUpLife.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_ActivateStatsUpLife_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_CashConverter.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_CashConverter_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_greedy.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_greedy_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_LifeConverter.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_LifeConverter_a2.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_vamperic.png" />
+    <EmbeddedResource Include="Resources\Sigils\lifecost_vamperic_a2.png" />
     <EmbeddedResource Include="Resources\StartingDeck\Dev_Test.png" />
   </ItemGroup>
   <ItemGroup>

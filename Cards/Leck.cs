@@ -2,6 +2,7 @@
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers;
 using NewCostTest;
+using NewCostTest.Utility;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -49,6 +49,7 @@ namespace NewCostTest
 
 
             NewCostTest.Costs.CostsToAdd.AddCost();
+            NewCostTest.Sigils.SigilsToAdd.AddSigils();
             NewCostTest.Cards.Teck.AddCard();
             NewCostTest.Cards.Meck.AddCard();
             NewCostTest.Cards.Leck.AddCard();
@@ -57,6 +58,17 @@ namespace NewCostTest
 
         }
 
+        private void Start()
+        {
+            Plugin.Log.LogMessage("Lifecost start event fired");
+            Utility.BackwardsCompatibility.ChangeCardsToLifecost();
+            Utility.BackwardsCompatibility.SetCardsToLifecost();
+            Utility.BackwardsCompatibility.SetCardsToLifeMoneycost();
+            Utility.BackwardsCompatibility.SetCardsToMoneycost();
+            Utility.BackwardsCompatibility.FixCardsToLifecost();
+            Utility.BackwardsCompatibility.FixCardsToLifeMoneycost();
+            Utility.BackwardsCompatibility.FixCardsToMoneycost();
+        }
 
         public static void AddStartingDeck()
         {
@@ -73,14 +85,5 @@ namespace NewCostTest
 
         }
 
-        [HarmonyPatch(typeof(PlayableCard), "CanPlay")]
-        public class CanPlay_patch
-        {
-            [HarmonyPostfix]
-            public static void Postfix(ref PlayableCard __instance, ref bool __result)
-            {
-                Plugin.Log.LogMessage(Singleton<LifeManager>.Instance.Balance.ToString());
-            }
-        }
     }
 }

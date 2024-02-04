@@ -4,7 +4,7 @@ using DiskCardGame;
 using InscryptionAPI.Card;
 using UnityEngine;
 
-namespace NewCostTest.Cards
+namespace NewCostTest.Utility
 {
     public static class CardUtils
     {
@@ -22,7 +22,7 @@ namespace NewCostTest.Cards
         public static Texture2D LoadTextureFromResource(byte[] resourceFile)
         {
             Texture2D texture2D = new Texture2D(2, 2);
-            ImageConversion.LoadImage(texture2D, resourceFile);
+            texture2D.LoadImage(resourceFile);
             texture2D.filterMode = 0;
             return texture2D;
         }
@@ -32,7 +32,7 @@ namespace NewCostTest.Cards
             AbilityInfo abilityInfo = AbilityManager.New("extraVoid.inscryption.LifeCost", rulebookName, rulebookDescription, behavior, text_a1);
             if (withDialogue)
             {
-                abilityInfo.abilityLearnedDialogue = CardUtils.SetAbilityInfoDialogue(LearnDialogue);
+                abilityInfo.abilityLearnedDialogue = SetAbilityInfoDialogue(LearnDialogue);
             }
             abilityInfo.powerLevel = powerLevel;
             abilityInfo.activated = true;
@@ -62,26 +62,26 @@ namespace NewCostTest.Cards
             float num2 = 0.5f;
             var vector = new Vector2(num, num2);
             Texture2D texture2D = new Texture2D(2, 2);
-            ImageConversion.LoadImage(texture2D, resourceFile);
+            texture2D.LoadImage(resourceFile);
             texture2D.filterMode = 0;
-            return Sprite.Create(texture2D, new Rect(0f, 0f, (float)texture2D.width, (float)texture2D.height), vector, 100f);
+            return Sprite.Create(texture2D, new Rect(0f, 0f, texture2D.width, texture2D.height), vector, 100f);
         }
 
         public static CardInfo CreateCardWithDefaultSettings(string InternalName, string DisplayName, int attack, int health, Texture2D texture_base, Texture2D texture_emission, List<CardMetaCategory> cardMetaCategories, List<Tribe> tribes, List<Trait> traits, List<Ability> abilities, Texture2D texture_pixel = null, int bloodCost = 0, int boneCost = 0, int energyCost = 0)
         {
             CardInfo cardInfo = CardManager.New("lifecost", InternalName, DisplayName, attack, health, "A puddle that errods all that touches it.");
-            CardExtensions.SetPortrait(cardInfo, texture_base, texture_emission, null);
+            cardInfo.SetPortrait(texture_base, texture_emission, null);
             bool flag = texture_pixel != null;
             if (flag)
             {
-                CardExtensions.SetPixelPortrait(cardInfo, texture_pixel, null);
+                cardInfo.SetPixelPortrait(texture_pixel, null);
             }
             cardInfo.metaCategories = cardMetaCategories;
             cardInfo.tribes = tribes;
             cardInfo.traits = traits;
             for (int i = 0; i < abilities.Count; i++)
             {
-                CardExtensions.AddAbilities(cardInfo, new Ability[]
+                cardInfo.AddAbilities(new Ability[]
                 {
                     abilities[i]
                 });
