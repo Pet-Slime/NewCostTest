@@ -4,8 +4,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>NewCostTest</AssemblyName>
-    <RootNamespace>NewCostTest</RootNamespace>
+    <AssemblyName>LifeCost</AssemblyName>
+    <RootNamespace>LifeCost</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Resources\Cards\pixel_teck.png" />

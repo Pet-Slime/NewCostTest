@@ -8,7 +8,7 @@ using Pixelplacement;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace NewCostTest.Costs
+namespace LifeCost.Costs
 {
     internal class PayCost
     {  

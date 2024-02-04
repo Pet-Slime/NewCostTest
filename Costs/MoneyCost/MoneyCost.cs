@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewCostTest.Costs.LifeMoneyCost
+namespace LifeCost.Costs.MCost
 {
     public class MoneyCost : CustomCardCost
     {

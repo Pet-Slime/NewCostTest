@@ -4,7 +4,7 @@ using DiskCardGame;
 using UnityEngine;
 using BepInEx.Bootstrap;
 
-namespace NewCostTest.Sigils
+namespace LifeCost.Sigils
 {
     public class lifecost_ActivateLifeConverter : LifeActiveAbilityCost
     {

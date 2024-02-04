@@ -3,9 +3,9 @@ using GBC;
 using DiskCardGame;
 using UnityEngine;
 using HarmonyLib;
-using NewCostTest.Costs;
+using LifeCost.Costs;
 
-namespace NewCostTest.Sigils
+namespace LifeCost.Sigils
 {
     [HarmonyPatch]
     public abstract class LifeActiveAbilityCost : ActivatedAbilityBehaviour

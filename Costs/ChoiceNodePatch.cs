@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NewCostTest.Costs
+namespace LifeCost.Costs
 {
     internal static class ChoiceNodePatch
     {

@@ -2,7 +2,7 @@
 using DiskCardGame;
 using UnityEngine;
 
-namespace NewCostTest.Sigils
+namespace LifeCost.Sigils
 {
     public class lifecost_ActivateStatsUpLife : LifeActiveAbilityCost
     {

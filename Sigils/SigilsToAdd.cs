@@ -1,9 +1,9 @@
 ﻿using DiskCardGame;
 using UnityEngine;
 using InscryptionAPI.Helpers;
-using NewCostTest.Utility;
+using LifeCost.Utility;
 
-namespace NewCostTest.Sigils
+namespace LifeCost.Sigils
 {
     internal class SigilsToAdd
     {

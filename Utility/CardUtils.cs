@@ -4,7 +4,7 @@ using DiskCardGame;
 using InscryptionAPI.Card;
 using UnityEngine;
 
-namespace NewCostTest.Utility
+namespace LifeCost.Utility
 {
     public static class CardUtils
     {

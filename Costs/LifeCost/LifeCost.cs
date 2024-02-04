@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace NewCostTest.Costs.LifeMoneyCost
+namespace LifeCost.Costs.LCost
 {
     public class LifeCost : CustomCardCost
     {

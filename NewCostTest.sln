@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewCostTest", "NewCostTest.csproj", "{C21B9A67-AB0D-48A8-8424-5096B2FF3524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeCost", "LifeCost.csproj", "{C21B9A67-AB0D-48A8-8424-5096B2FF3524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

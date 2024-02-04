@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace NewCostTest.Costs
+namespace LifeCost.Costs
 {
     internal class CostTierPatch
     {

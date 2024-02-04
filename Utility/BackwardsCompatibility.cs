@@ -5,7 +5,7 @@ using System.Collections;
 using System;
 using System.Linq;
 
-namespace NewCostTest.Utility
+namespace LifeCost.Utility
 {
     public static class ext
     {

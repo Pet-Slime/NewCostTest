@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using DiskCardGame;
 using UnityEngine;
-using NewCostTest.Costs;
+using LifeCost.Costs;
 
-namespace NewCostTest.Sigils
+namespace LifeCost.Sigils
 {
     public class lifecost_ActivateCashConverter : LifeActiveAbilityCost
     {

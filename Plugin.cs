@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace NewCostTest
+namespace LifeCost
 {
 
     [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
@@ -23,10 +23,10 @@ namespace NewCostTest
     public partial class Plugin : BaseUnityPlugin
     {
         public const string APIGUID = "cyantist.inscryption.api";
-        public const string PluginGuid = "extraVoid.inscryption.NewCostTest";
+        public const string PluginGuid = "extraVoid.inscryption.LifeCost";
         public const string ZGUID = "community.inscryption.patch";
-        private const string PluginName = "New Cost Test";
-        private const string PluginVersion = "1.0.0";
+        private const string PluginName = "Life Scrybe";
+        private const string PluginVersion = "4.0.0";
         public static string Directory;
         internal static ManualLogSource Log;
         internal static ConfigEntry<bool> configFairHandActive;
@@ -39,7 +39,7 @@ namespace NewCostTest
 
             
             Plugin.Log = base.Logger;
-            Plugin.Directory = base.Info.Location.Replace("NewCostTest.dll", "");
+            Plugin.Directory = base.Info.Location.Replace("LifeCost.dll", "");
             Harmony harmony = new Harmony(PluginGuid);
             harmony.PatchAll();
             Plugin.configFairHandActive = base.Config.Bind<bool>("Fair Hand", "Active", true, "Should this mod post-fix patch fair hand to include the Money, Life, and Hybrid Costs?");
@@ -48,11 +48,11 @@ namespace NewCostTest
             Plugin.configFairHandCostH = base.Config.Bind<int>("Fair Hand", "Hybrid Cost", 2, "The value in which the card should not show up in fair hand.");
 
 
-            NewCostTest.Costs.CostsToAdd.AddCost();
-            NewCostTest.Sigils.SigilsToAdd.AddSigils();
-            NewCostTest.Cards.Teck.AddCard();
-            NewCostTest.Cards.Meck.AddCard();
-            NewCostTest.Cards.Leck.AddCard();
+            LifeCost.Costs.CostsToAdd.AddCost();
+            LifeCost.Sigils.SigilsToAdd.AddSigils();
+            LifeCost.Cards.Teck.AddCard();
+            LifeCost.Cards.Meck.AddCard();
+            LifeCost.Cards.Leck.AddCard();
             AddStartingDeck();
 
 
@@ -72,8 +72,6 @@ namespace NewCostTest
 
         public static void AddStartingDeck()
         {
-
-            
             Texture2D tex_a1 = TextureHelper.GetImageAsTexture("Dev_Test.png", typeof(Plugin).Assembly, 0);
 
             StarterDeckInfo NewCostDevTest = ScriptableObject.CreateInstance<StarterDeckInfo>();
