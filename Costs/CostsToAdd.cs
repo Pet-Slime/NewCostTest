@@ -21,16 +21,15 @@ namespace NewCostTest.Costs
         }
 
 
-
         public static Texture2D TextureMethod(int cardCost, CardInfo info, PlayableCard card)
         {
-            return TextureHelper.GetImageAsTexture($"life_money_cost_{cardCost}.png", typeof(Plugin).Assembly, 0);
+            return TextureHelper.GetImageAsTexture(string.Format("LifeMoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly, 0);
         }
 
         public static Texture2D PixelTextureMethod(int cardCost, CardInfo info, PlayableCard card)
         {
             // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
-            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("pixel_life_money.png", typeof(Plugin).Assembly, 0));
+            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeMoneyCost_pixel.png", typeof(Plugin).Assembly, 0));
         }
     }
 }

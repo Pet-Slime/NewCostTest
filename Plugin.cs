@@ -34,7 +34,7 @@ namespace NewCostTest
 
 
             Plugin.Log = base.Logger;
-            Plugin.Directory = base.Info.Location.Replace("NewCostTestCost.dll", "");
+            Plugin.Directory = base.Info.Location.Replace("NewCostTest.dll", "");
             Harmony harmony = new Harmony(PluginGuid);
             harmony.PatchAll();
 

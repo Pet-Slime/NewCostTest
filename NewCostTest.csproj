@@ -11,6 +11,22 @@
     <None Remove="Resources\Cards\pixel_teck.png" />
     <None Remove="Resources\Cards\teck.png" />
     <None Remove="Resources\Cards\teck_e.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_0.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_1.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_10.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_11.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_12.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_13.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_14.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_15.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_2.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_3.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_4.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_5.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_6.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_7.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_8.png" />
+    <None Remove="Resources\Costs\3D\LifeMoneyCost_9.png" />
     <None Remove="Resources\Costs\3D\life_money_cost_0.png" />
     <None Remove="Resources\Costs\3D\life_money_cost_1.png" />
     <None Remove="Resources\Costs\3D\life_money_cost_10.png" />
@@ -26,34 +42,34 @@
     <None Remove="Resources\Costs\3D\life_money_cost_6.png" />
     <None Remove="Resources\Costs\3D\life_money_cost_7.png" />
     <None Remove="Resources\Costs\3D\life_money_cost_8.png" />
-    <None Remove="Resources\Costs\3D\life_money_cost_9.png" />
+    <None Remove="Resources\Costs\Pixel\LifeMoneyCost_pixel.png" />
     <None Remove="Resources\Costs\Pixel\pixel_life_money.png" />
     <None Remove="Resources\StartingDeck\Dev_Test.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_0.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_1.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_10.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_11.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_12.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_13.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_14.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_15.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_2.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_3.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_4.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_5.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_6.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_7.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_8.png" />
+    <EmbeddedResource Include="Resources\Costs\3D\LifeMoneyCost_9.png" />
+    <EmbeddedResource Include="Resources\Costs\Pixel\LifeMoneyCost_pixel.png" />
     <EmbeddedResource Include="Resources\StartingDeck\Dev_Test.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Cards\pixel_teck.png" />
     <EmbeddedResource Include="Resources\Cards\teck.png" />
     <EmbeddedResource Include="Resources\Cards\teck_e.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_0.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_1.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_10.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_11.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_12.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_13.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_14.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_15.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_2.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_3.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_4.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_5.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_6.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_7.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_8.png" />
-    <EmbeddedResource Include="Resources\Costs\3D\life_money_cost_9.png" />
-    <EmbeddedResource Include="Resources\Costs\Pixel\pixel_life_money.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
