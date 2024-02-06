@@ -20,7 +20,7 @@ namespace LifeCost.Costs
 
         public static Texture2D TextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
         {
-            return TextureHelper.GetImageAsTexture(string.Format("LifeCost_{0}.png", cardCost), typeof(Plugin).Assembly);
+            return TextureHelper.GetImageAsTexture($"LifeCost_{cardCost}.png", typeof(Plugin).Assembly);
         }
 
         public static Texture2D PixelTextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
@@ -31,7 +31,7 @@ namespace LifeCost.Costs
 
         public static Texture2D TextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
         {
-            return TextureHelper.GetImageAsTexture(string.Format("MoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly);
+            return TextureHelper.GetImageAsTexture($"MoneyCost_{cardCost}.png", typeof(Plugin).Assembly);
         }
 
         public static Texture2D PixelTextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
@@ -43,7 +43,7 @@ namespace LifeCost.Costs
 
         public static Texture2D TextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)
         {
-            return TextureHelper.GetImageAsTexture(string.Format("LifeMoneyCost_{0}.png", cardCost), typeof(Plugin).Assembly);
+            return TextureHelper.GetImageAsTexture($"LifeMoneyCost_{cardCost}.png", typeof(Plugin).Assembly);
         }
 
         public static Texture2D PixelTextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)

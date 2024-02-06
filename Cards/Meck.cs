@@ -26,7 +26,7 @@ namespace LifeCost.Cards
             List<Tribe> tribes = new List<Tribe>();
             List<Ability> list = new List<Ability>
             {
-                Sigils.lifecost_ActivateEnergyGamble.ability
+///                Sigils.lifecost_ActivateEnergyGamble.ability
             };
             List<Trait> traits = new List<Trait>();
             Texture2D texture2D = TextureHelper.GetImageAsTexture("teck.png", typeof(Plugin).Assembly, 0);

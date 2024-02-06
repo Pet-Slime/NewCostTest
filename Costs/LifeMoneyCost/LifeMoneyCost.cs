@@ -21,11 +21,11 @@ namespace LifeCost.Costs.HCost
             int currency;
             if (SaveManager.SaveFile.IsPart2)
             {
-                currency = RunState.Run.currency;
+                currency = SaveData.Data.currency;
             }
             else
             {
-                currency = SaveData.Data.currency;
+                currency = RunState.Run.currency;
             }
             int hybridCost = currency +  Singleton<LifeManager>.Instance.Balance + 4;
             if (cardCost > hybridCost)

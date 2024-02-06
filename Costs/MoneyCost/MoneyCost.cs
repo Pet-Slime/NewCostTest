@@ -17,16 +17,16 @@ namespace LifeCost.Costs.MCost
         // whether or not this cost's price has been satisfied by the card
         public override bool CostSatisfied(int cardCost, PlayableCard card)
         {
-            int currency2;
+            int currency;
             if (SaveManager.SaveFile.IsPart2)
             {
-                currency2 = SaveData.Data.currency;
+                currency = SaveData.Data.currency;
             }
             else
             {
-                currency2 = RunState.Run.currency;
+                currency = RunState.Run.currency;
             }
-            if (cardCost > currency2)
+            if (cardCost > currency)
             {
                 return false;
             }

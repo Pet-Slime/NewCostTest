@@ -2,6 +2,7 @@
 using HarmonyLib;
 using InscryptionAPI.Card;
 using InscryptionAPI.Helpers;
+using LifeCost.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,9 +39,9 @@ namespace LifeCost.Costs
             var meta = CardMetaCategory.ChoiceNode;
             var temp = CardTemple.Nature;
 
-            List<CardInfo> list = CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.GetCustomCost("LifeMoneCost") > 0);
-            list.AddRange(CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.GetCustomCost("LifeCost") > 0));
-            list.AddRange(CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.GetCustomCost("MoneCost") > 0));
+            List<CardInfo> list = CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.LifeMoneyCost() > 0);
+            list.AddRange(CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.LifeCost() > 0));
+            list.AddRange(CardLoader.GetUnlockedCards(meta, temp).FindAll((CardInfo x) => x.MoneyCost() > 0));
             return list;
         }
 
@@ -86,6 +87,7 @@ namespace LifeCost.Costs
             {
                 List<CardInfo> list = IsThereLifeMoneyCards();
                 bool flag = list.Count > 0;
+                Plugin.Log.LogMessage(flag.ToString());
                 if (flag)
                 {
                     List<CardChoice> resultList = __result;

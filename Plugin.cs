@@ -62,12 +62,12 @@ namespace LifeCost
         {
             Plugin.Log.LogMessage("Lifecost start event fired");
             Utility.BackwardsCompatibility.ChangeCardsToLifecost();
-            Utility.BackwardsCompatibility.SetCardsToLifecost();
-            Utility.BackwardsCompatibility.SetCardsToLifeMoneycost();
-            Utility.BackwardsCompatibility.SetCardsToMoneycost();
-            Utility.BackwardsCompatibility.FixCardsToLifecost();
-            Utility.BackwardsCompatibility.FixCardsToLifeMoneycost();
-            Utility.BackwardsCompatibility.FixCardsToMoneycost();
+            ///Utility.BackwardsCompatibility.SetCardsToLifecost();
+            ///Utility.BackwardsCompatibility.SetCardsToLifeMoneycost();
+            ///Utility.BackwardsCompatibility.SetCardsToMoneycost();
+            ///Utility.BackwardsCompatibility.FixCardsToLifecost();
+            ///Utility.BackwardsCompatibility.FixCardsToLifeMoneycost();
+            ///Utility.BackwardsCompatibility.FixCardsToMoneycost();
         }
 
         public static void AddStartingDeck()

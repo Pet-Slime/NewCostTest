@@ -23,11 +23,10 @@ namespace LifeCost.Cards
             int boneCost = 0;
             int energyCost = 0;
             List<CardMetaCategory> cardMetaCategories = new List<CardMetaCategory>();
-            cardMetaCategories.Add(CardMetaCategory.ChoiceNode);
             List<Tribe> tribes = new List<Tribe>();
             List<Ability> list = new List<Ability>
             {
-                Sigils.lifecost_ActivateLifeConverter.ability
+///                Sigils.lifecost_ActivateLifeConverter.ability
             };
             List<Trait> traits = new List<Trait>();
             Texture2D texture2D = TextureHelper.GetImageAsTexture("teck.png", typeof(Plugin).Assembly, 0);
