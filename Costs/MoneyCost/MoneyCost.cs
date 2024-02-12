@@ -13,6 +13,7 @@ namespace LifeCost.Costs.MCost
     {
         // this is a required field, and should be equal to the name you pass into the API when registering your cost
         public override string CostName => "MoneyCost";
+        public ResourceType ResourceType = (ResourceType)42;
 
         // whether or not this cost's price has been satisfied by the card
         public override bool CostSatisfied(int cardCost, PlayableCard card)
