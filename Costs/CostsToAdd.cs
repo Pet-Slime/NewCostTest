@@ -3,6 +3,8 @@ using InscryptionAPI.CardCosts;
 using InscryptionAPI.Helpers;
 using InscryptionCommunityPatch.Card;
 using UnityEngine;
+using static InscryptionAPI.CardCosts.CardCostManager;
+
 
 namespace LifeCost.Costs
 {
@@ -13,43 +15,24 @@ namespace LifeCost.Costs
         {
             // when registering your card, you need to provide 2 Func's: one for grabbing the cost texture in the 3D Acts, and one for grabbing the pixel texture in Act 2
             // if your cost is exclusive to one part of the game, you can pass in null for the appropriate Func.
-            CardCostManager.Register(Plugin.PluginGuid, "LifeMoneyCost", typeof(LifeCost.Costs.HCost.LifeMoneyCost), TextureMethod_LifeMoney, PixelTextureMethod_LifeMoney);
-            CardCostManager.Register(Plugin.PluginGuid, "LifeCost", typeof(LifeCost.Costs.LCost.LifeCost), TextureMethod_Life, PixelTextureMethod_Life);
-            CardCostManager.Register(Plugin.PluginGuid, "MoneyCost", typeof(LifeCost.Costs.MCost.MoneyCost), TextureMethod_Money, PixelTextureMethod_Money);
-        }
+            FullCardCost lifeMoneyCost = Register(Plugin.PluginGuid, "LifeMoneyCost", typeof(HCost.LifeMoneyCost), HCost.Textures.Texture_3D, HCost.Textures.Texture_Pixel);
+            lifeMoneyCost.SetCostTier(HCost.CostTier.CostTierH);
+            lifeMoneyCost.SetFoundAtChoiceNodes(isChoice: true, TextureHelper.GetImageAsTexture("CostChoiceBack.png", typeof(CostsToAdd).Assembly, 0));
 
-        public static Texture2D TextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
-        {
-            return TextureHelper.GetImageAsTexture($"LifeCost_{cardCost}.png", typeof(Plugin).Assembly);
-        }
+            FullCardCost lifeCost = Register(Plugin.PluginGuid, "LifeCost", typeof(LCost.LifeCost), LCost.Textures.Texture_3D, LCost.Textures.Texture_Pixel);
+            lifeCost.SetCostTier(LCost.CostTier.CostTierL);
+            lifeCost.ResourceType = lifeMoneyCost.ResourceType;
 
-        public static Texture2D PixelTextureMethod_Life(int cardCost, CardInfo info, PlayableCard card)
-        {
-            // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
-            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeCost_pixel.png", typeof(Plugin).Assembly));
-        }
+            FullCardCost moneyCost = Register(Plugin.PluginGuid, "MoneyCost", typeof(MCost.MoneyCost), MCost.Textures.Texture_3D, MCost.Textures.Texture_Pixel);
+            moneyCost.SetCostTier(MCost.CostTier.CostTierM);
+            moneyCost.ResourceType = lifeMoneyCost.ResourceType;
 
-        public static Texture2D TextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
-        {
-            return TextureHelper.GetImageAsTexture($"MoneyCost_{cardCost}.png", typeof(Plugin).Assembly);
-        }
-
-        public static Texture2D PixelTextureMethod_Money(int cardCost, CardInfo info, PlayableCard card)
-        {
-            // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
-            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("MoneyCost_pixel.png", typeof(Plugin).Assembly));
-        }
-
-
-        public static Texture2D TextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)
-        {
-            return TextureHelper.GetImageAsTexture($"LifeMoneyCost_{cardCost}.png", typeof(Plugin).Assembly);
-        }
-
-        public static Texture2D PixelTextureMethod_LifeMoney(int cardCost, CardInfo info, PlayableCard card)
-        {
-            // if you want the API to handle adding stack numbers, you can instead provide a 7x8 texture like so:
-            return Part2CardCostRender.CombineIconAndCount(cardCost, TextureHelper.GetImageAsTexture("LifeMoneyCost_pixel.png", typeof(Plugin).Assembly));
+            if (Plugin.configFairHandActive.Value)
+            {
+                lifeMoneyCost.SetCanBePlayedByTurn2WithHand(HCost.CardCanBePlayedByTurn2WithHand.CanBePlayed);
+                lifeCost.SetCanBePlayedByTurn2WithHand(LCost.CardCanBePlayedByTurn2WithHand.CanBePlayed);
+                moneyCost.SetCanBePlayedByTurn2WithHand(MCost.CardCanBePlayedByTurn2WithHand.CanBePlayed);
+            }
         }
     }
 }
