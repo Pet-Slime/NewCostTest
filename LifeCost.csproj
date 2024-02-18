@@ -110,19 +110,6 @@
     <None Remove="Resources\StartingDeck\Dev_Test_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Cards\gali_2d.png" />
-    <EmbeddedResource Include="Resources\Cards\gali_3d.png" />
-    <EmbeddedResource Include="Resources\Cards\gali_3d_a.png" />
-    <EmbeddedResource Include="Resources\Cards\gali_3d_d.png" />
-    <EmbeddedResource Include="Resources\Cards\henger_2d.png" />
-    <EmbeddedResource Include="Resources\Cards\henger_3d.png" />
-    <EmbeddedResource Include="Resources\Cards\henger_3d_a.png" />
-    <EmbeddedResource Include="Resources\Cards\pixie_2d.png" />
-    <EmbeddedResource Include="Resources\Cards\pixie_3d.png" />
-    <EmbeddedResource Include="Resources\Cards\pixie_3d_a.png" />
-    <EmbeddedResource Include="Resources\Cards\thunder_fang_2d.png" />
-    <EmbeddedResource Include="Resources\Cards\thunder_fang_3d.png" />
-    <EmbeddedResource Include="Resources\Cards\thunder_fang_3d_a.png" />
     <EmbeddedResource Include="Resources\Costs\CostChoiceBack.png" />
     <EmbeddedResource Include="Resources\Costs\LifeCost\3D\LifeCost_0.png" />
     <EmbeddedResource Include="Resources\Costs\LifeCost\3D\LifeCost_1.png" />
@@ -195,7 +182,6 @@
     <EmbeddedResource Include="Resources\Cards\pixel_teck.png" />
     <EmbeddedResource Include="Resources\Cards\teck.png" />
     <EmbeddedResource Include="Resources\Cards\teck_e.png" />
-    <EmbeddedResource Include="Resources\StartingDeck\Dev_Test_2.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
