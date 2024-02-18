@@ -1,13 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using DiskCardGame;
 using InscryptionAPI.Card;
+using InscryptionAPI.Helpers;
 using UnityEngine;
+using static UnityEngine.GridBrushBase;
 
 namespace LifeCost.Utility
 {
     public static class CardUtils
     {
+
+        private static Assembly _assembly;
+
+        public static Assembly CurrentAssembly
+        {
+            get
+            {
+                Assembly result;
+                if ((result = CardUtils._assembly) == null)
+                {
+                    result = (CardUtils._assembly = Assembly.GetExecutingAssembly());
+                }
+                return result;
+            }
+        }
+
+        public static Texture2D getImage(string path)
+        {
+            return TextureHelper.GetImageAsTexture(path, CardUtils.CurrentAssembly, 0);
+        }
+
+        public static Sprite getSprite(string path)
+        {
+            Sprite sprite = new Sprite();
+            Texture2D image = CardUtils.getImage(path);
+            return Sprite.Create(image, new Rect(0f, 0f, (float)image.width, (float)image.height), new Vector2(0.5f, 0.5f));
+        }
+
+
         public static DialogueEvent.LineSet SetAbilityInfoDialogue(string dialogue)
         {
             return new DialogueEvent.LineSet(new List<DialogueEvent.Line>
@@ -17,14 +49,6 @@ namespace LifeCost.Utility
                     text = dialogue
                 }
             });
-        }
-
-        public static Texture2D LoadTextureFromResource(byte[] resourceFile)
-        {
-            Texture2D texture2D = new Texture2D(2, 2);
-            texture2D.LoadImage(resourceFile);
-            texture2D.filterMode = 0;
-            return texture2D;
         }
 
         public static AbilityInfo CreateAbilityWithDefaultSettings(string rulebookName, string rulebookDescription, Type behavior, Texture2D text_a1, Sprite text_a2, string LearnDialogue, bool withDialogue = false, int powerLevel = 0, bool leshyUsable = false, bool part1Modular = true, bool stack = false)
@@ -56,16 +80,7 @@ namespace LifeCost.Utility
             return abilityInfo;
         }
 
-        public static Sprite LoadSpriteFromResource(byte[] resourceFile)
-        {
-            float num = 0.5f;
-            float num2 = 0.5f;
-            var vector = new Vector2(num, num2);
-            Texture2D texture2D = new Texture2D(2, 2);
-            texture2D.LoadImage(resourceFile);
-            texture2D.filterMode = 0;
-            return Sprite.Create(texture2D, new Rect(0f, 0f, texture2D.width, texture2D.height), vector, 100f);
-        }
+        
 
         public static CardInfo CreateCardWithDefaultSettings(string InternalName, string DisplayName, int attack, int health, Texture2D texture_base, Texture2D texture_emission, List<CardMetaCategory> cardMetaCategories, List<Tribe> tribes, List<Trait> traits, List<Ability> abilities, Texture2D texture_pixel = null, int bloodCost = 0, int boneCost = 0, int energyCost = 0)
         {

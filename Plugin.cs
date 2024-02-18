@@ -53,7 +53,8 @@ namespace LifeCost
             LifeCost.Cards.Teck.AddCard();
             LifeCost.Cards.Meck.AddCard();
             LifeCost.Cards.Leck.AddCard();
-            AddStartingDeck();
+
+            //AddStartingDeck();
 
 
         }
@@ -62,12 +63,6 @@ namespace LifeCost
         {
             Plugin.Log.LogMessage("Lifecost start event fired");
             Utility.BackwardsCompatibility.ChangeCardsToLifecost();
-            ///Utility.BackwardsCompatibility.SetCardsToLifecost();
-            ///Utility.BackwardsCompatibility.SetCardsToLifeMoneycost();
-            ///Utility.BackwardsCompatibility.SetCardsToMoneycost();
-            ///Utility.BackwardsCompatibility.FixCardsToLifecost();
-            ///Utility.BackwardsCompatibility.FixCardsToLifeMoneycost();
-            ///Utility.BackwardsCompatibility.FixCardsToMoneycost();
         }
 
         public static void AddStartingDeck()
@@ -77,11 +72,10 @@ namespace LifeCost
             StarterDeckInfo NewCostDevTest = ScriptableObject.CreateInstance<StarterDeckInfo>();
             NewCostDevTest.title = "NewCost Dev Test";
             NewCostDevTest.iconSprite = tex_a1.ConvertTexture(TextureHelper.SpriteType.StarterDeckIcon);
-            NewCostDevTest.cards = new() { CardLoader.GetCardByName("lifecost_Teck"), CardLoader.GetCardByName("lifecost_Meck"), CardLoader.GetCardByName("lifecost_Leck") };
+            NewCostDevTest.cards = new() { CardLoader.GetCardByName("lifecost_Leck"), CardLoader.GetCardByName("lifecost_Meck"), CardLoader.GetCardByName("lifecost_Teck") };
 
             StarterDeckManager.Add(Plugin.PluginGuid, NewCostDevTest);
 
         }
-
     }
 }
